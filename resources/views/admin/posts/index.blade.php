@@ -37,6 +37,26 @@
 
         @endforeach
 
+        @foreach ( $categories as $category )
+        <table class="table my-5">
+            <thead>
+              <tr>
+                <th scope="col">{{$category->name}}</th>
+
+              </tr>
+            </thead>
+            <tbody>
+                @foreach ($category->posts as $post )
+                    <tr>
+                        <td scope="row">
+                            <a href="{{route('admin.posts.show', $post)}}">{{$post->title}}</a>
+                        </td>
+                    </tr>
+                @endforeach
+
+            </tbody>
+          </table>
+        @endforeach
     </tbody>
   </table>
 @endsection
